@@ -4,7 +4,6 @@ class Player():
         self.gesture = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
 
         
-    
 
     def choose_gesture(self):
         
@@ -16,7 +15,6 @@ class Player():
             if user_input == 'Rock':
 
               
-
     def paper_game_winner(self, user_input):
             if user_input == 'Paper' and self.gesture[1]:
                 
