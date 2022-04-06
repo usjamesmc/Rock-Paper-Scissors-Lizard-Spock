@@ -11,3 +11,7 @@
 # Establish a function to show what class beats what class.
 # Display Winner
 
+from gestures import Gestures
+
+run_game = Gestures('Bob')
+run_game.choose_gesture()
