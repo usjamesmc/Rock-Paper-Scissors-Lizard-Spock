@@ -7,5 +7,5 @@ class Human(Player):
         
 
     def attack_choice(self):   
-        user_input = input(f'Please select your weapon of choice.: ')
-        print (user_input)
+        user_input = input('Please select your weapon of choice.: ')
+        print(user_input)
