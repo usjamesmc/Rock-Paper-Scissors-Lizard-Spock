@@ -13,5 +13,8 @@
 
 from gestures import Gestures
 
-run_game = Gestures('Bob')
-run_game.choose_gesture()
+player_one = Gestures('Bob')
+player_two = Gestures('Frank')
+player_one.choose_gesture()
+player_two.choose_gesture()
+
