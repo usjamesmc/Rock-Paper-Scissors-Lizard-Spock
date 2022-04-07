@@ -1,4 +1,5 @@
-#RSPLS
+# This project was written by three contributors, Gerald Miller, Michael Nevius, Nicholas Wolf.
+# RSPLS
 # Display Rules
 # Display a welcome message
 # List of gestures that play can use game?

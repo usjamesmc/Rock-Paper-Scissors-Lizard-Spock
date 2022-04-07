@@ -1,3 +1,4 @@
+# This project was written by three contributors, Gerald Miller, Michael Nevius, Nicholas Wolf.
 from player import Player
 from computer import Computer
 
