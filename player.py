@@ -7,8 +7,9 @@ class Player():
         self.chosen_gesture = None
 
     def choose_gesture(self):
+        self.chosen_gesture = self.player_choice(self.gesture, 'gesture')
         if self.chosen_gesture <= len(self.gesture) - 1:
-         self.chosen_gesture = self.gesture[int(self.chosen_gesture)]
+            self.chosen_gesture = self.gesture[int(self.chosen_gesture)]
         else:
          print('That is not a valid repsonse.')
          self.choose_gesture()

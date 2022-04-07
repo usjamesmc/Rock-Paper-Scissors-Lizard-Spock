@@ -9,24 +9,24 @@ class Game:
         self.player_two = Player('Frank')
 
 
+    def run_game(self):
+        self.display_welcome()
+        self.game_mode()
+        self.display_winner()
+        
     def game_mode(self):
+        print('RPSLS Rules')
+        print('Rock beats Scissors and Lizard')
+        print('Paper beats Rock and Spock')
+        print('Scissors beats Paper and Lizard')
+        print('Lizard beats Paper Spock')
+        print('Spock beats Rock and Scissors')
         while self.user_input != '1' or self.user_input != '2':
             if self.user_input == '1':
-                print('RPSLS Rules')
-                print('Rock beats Scissors and Lizard')
-                print('Paper beats Rock and Spock')
-                print('Scissors beats Paper and Lizard')
-                print('Lizard beats Paper Spock')
-                print('Spock beats Rock and Scissors')
+            
                 self.player_vs_computer()
                 
             elif self.user_input == '2':
-                print('RPSLS Rules')
-                print('Rock beats Scissors and Lizard')
-                print('Paper beats Rock and Spock')
-                print('Scissors beats Paper and Lizard')
-                print('Lizard beats Paper Spock')
-                print('Spock beats Rock and Scissors')
                 self.player_vs_player()
                
             else:
