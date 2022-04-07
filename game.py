@@ -14,32 +14,33 @@ class Game:
         self.game_mode()
         self.game_phase()
         self.display_winner()
+        self.end_game()
 
     def game_mode(self):
         
         while self.user_input != '1' or self.user_input != '2':
             if self.user_input == '1':
-                print('RPSLS Rules')
-                print('Rock beats Scissors and Lizard')
-                print('Paper beats Rock and Spock')
-                print('Scissors beats Paper and Lizard')
-                print('Lizard beats Paper Spock')
-                print('Spock beats Rock and Scissors')
+                # print('RPSLS Rules')
+                # print('Rock beats Scissors and Lizard')
+                # print('Paper beats Rock and Spock')
+                # print('Scissors beats Paper and Lizard')
+                # print('Lizard beats Paper Spock')
+                # print('Spock beats Rock and Scissors')
                 self.player_vs_computer()
                 
             elif self.user_input == '2':
-                print('RPSLS Rules')
-                print('Rock beats Scissors and Lizard')
-                print('Paper beats Rock and Spock')
-                print('Scissors beats Paper and Lizard')
-                print('Lizard beats Paper Spock')
-                print('Spock beats Rock and Scissors')
+                # print('RPSLS Rules')
+                # print('Rock beats Scissors and Lizard')
+                # print('Paper beats Rock and Spock')
+                # print('Scissors beats Paper and Lizard')
+                # print('Lizard beats Paper Spock')
+                # print('Spock beats Rock and Scissors')
                 self.player_vs_player()
          
             else:
                 print('Not a valid response')    
                 self.display_welcome()    
-        
+            
     
     def display_welcome(self):
         self.user_input = input('Welcome to Rock Paper Scissors Lizard Spock, please choose between 1 or 2 players: ')
@@ -47,12 +48,15 @@ class Game:
 
     def player_vs_player(self):
         self.player_two = Player('Frank')
-        while self.player_one.score < 2 and self.player_two.score < 2:
+        if self.player_one.score < 2 and self.player_two.score < 2:
             self.display_game_info()
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
             print(f'{self.player_one.name} chose {self.player_one.chosen_gesture} and {self.player_two.name} chose {self.player_two.chosen_gesture}')
             self.game_phase(self.player_one.chosen_gesture, self.player_two.chosen_gesture)
+        else:
+            self.display_winner()
+          
           
 
     def game_phase(self, player_one, player_two):
@@ -81,12 +85,14 @@ class Game:
 
     def player_vs_computer(self):
         self.player_two = Computer('Steve Jobs')
-        while  self.player_one.score < 2 and self.player_two.score < 2:
+        if  self.player_one.score < 2 and self.player_two.score < 2:
             self.display_game_info()
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
             print(f'{self.player_one.name} chose {self.player_one.chosen_gesture} and {self.player_two.name} chose {self.player_two.chosen_gesture}')
             self.game_phase(self.player_one.chosen_gesture, self.player_two.chosen_gesture)
+        else:
+            self.display_winner()
                      
     
     def display_game_info(self):
@@ -98,10 +104,14 @@ class Game:
           
         
     def display_winner(self):
-        if self.player_one.score > self.player_two.score:
+        if self.player_one.score == 2:
             print(f'{self.player_one.name}, wins the game')
         else:
             print(f'{self.player_two.name}, wins the game')
+    
+        
+    def end_game(self):
+        print('Thanks for playing')
 
         
 
