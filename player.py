@@ -6,11 +6,11 @@ class Player():
         self.chosen_gesture = None
 
     def choose_gesture(self):
-        user_input = self.player_choice(self.gesture, "gesture")
-        if user_input <= len(self.gesture) - 1:
-         self.current_gesture = self.gesture[int(user_input)]
+        self.chosen_gesture = self.player_choice(self.gesture, 'gesture')
+        if self.chosen_gesture <= len(self.gesture) - 1:
+         self.chosen_gesture = self.gesture[int(self.chosen_gesture)]
         else:
-         print("That is not a valid repsonse.")
+         print('That is not a valid repsonse.')
          self.choose_gesture()
 
 
@@ -22,9 +22,9 @@ class Player():
             chosen_gesture = int(input(f'{self.name}, enter a number to choose your {category} : '))
             break
          except ValueError:
-            print("That is not a valid repsonse.")
+            print('That is not a valid repsonse.')
             continue
-      return chosen_gesture     
+      return chosen_gesture    
 
         
 
