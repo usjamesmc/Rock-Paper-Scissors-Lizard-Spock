@@ -28,23 +28,34 @@ class Game:
         while self.player_one.score < 2 and self.player_two.score < 2:
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
-            self.choose_winner(self.player_one.current_gesture, self.player_two.current_gesture)
+            self.game_phase(self.player_one.current_gesture, self.player_two.current_gesture)
             self.display_score()
        
     def display_score(self): 
         print(f'{self.player_one.name} has {self.player_one.score} points and {self.player_two.name} has {self.player_two.score} points.')
 
 
-    def game_phase(self):
-        user_input = input(f'Enter a choice from{self.gesture}')
-        if user_input == self.player_two:
-            print(f"Both players selected {self.gesture}. It's a tie!")
-        elif user_input == 'Rock':
-            if self.player_two == 'Scissors':
-                print('Rock smashes scissors')
-            else:
-                print('Paper covers rock') 
-            self.player_one_score =+1    
+    def game_phase(self, player_one_choice, player_two_choice):
+        if player_one_choice == 'Rock' and player_two_choice in ['Paper', 'Spock']:
+            print(f'{self.player_two.name} wins the round.')
+            self.player_two.score += 1
+        elif player_one_choice == 'Paper' and player_two_choice in ['Scissors', 'Lizard']:
+            print(f'{self.player_two.name} wins the round.')
+            self.player_two.score += 1
+        elif player_one_choice == 'Scissors' and player_two_choice in ['Rock', 'Spock']:
+            print(f'{self.player_two.name} wins the round.')
+            self.player_two.score += 1
+        elif player_one_choice == 'Lizard' and player_two_choice in ['Rock', 'Scissors']:
+            print(f'{self.player_two.name} wins the round.')
+            self.player_two.score += 1
+        elif player_one_choice == 'Spock' and player_two_choice in ['Lizard', 'Paper']:
+            print(f'{self.player_two.name} wins the round.')
+            self.player_two.score += 1
+        elif player_one_choice == player_two_choice:
+            print('Both players chose the same gesture its a tie')                                        
+        else:
+            self.display_winner
+            
         
     def display_winner(self):
         if self.player_one_score == 2:
