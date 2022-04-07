@@ -1,10 +1,12 @@
 from player import Player
 from computer import Computer
 
+
 class Game:
     def __init__(self):
         self.player_one = Player('Bob')
         self.player_two = None
+
 
     def run_game(self):
         self.display_welcome()
@@ -19,6 +21,7 @@ class Game:
             print('You will be facing a computer')
         else:
             print('You will be facing a human')
+
     
     def player_vs_player(self):
         self.player_two = Player('Frank')
@@ -31,8 +34,23 @@ class Game:
     def display_score(self): 
         print(f'{self.player_one.name} has {self.player_one.score} points and {self.player_two.name} has {self.player_two.score} points.')
 
+
+    def game_phase(self):
+        user_input = input(f'Enter a choice from{self.gesture}')
+        if user_input == self.player_two:
+            print(f"Both players selected {self.gesture}. It's a tie!")
+        elif user_input == 'Rock':
+            if self.player_two == 'Scissors':
+                print('Rock smashes scissors')
+            else:
+                print('Paper covers rock') 
+            self.player_one_score =+1    
+        
     def display_winner(self):
-        print()
+        if self.player_one_score == 2:
+            print(f'{self.player_one.name}, wins the game')
+        else:
+            print(f'{self.player_two.name}, wins the game')
 
         
 
