@@ -28,7 +28,6 @@ class Game:
             else:
                 print('Paper covers rock') 
             self.player_one_score =+1    
-
         
     def display_winner(self):
         if self.player_one_score == 2:
