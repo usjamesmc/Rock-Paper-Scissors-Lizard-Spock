@@ -6,13 +6,7 @@ class Game:
     def __init__(self):
         self.player_one = Player('Bob')
         self.player_two = Player('Frank')
-        self.user_input = None
-        
 
-    def run_game(self):
-        self.display_welcome()
-        self.game_mode()
-        self.display_winner()
 
     def game_mode(self):
         while self.user_input != '1' or self.user_input != '2':
@@ -92,6 +86,7 @@ class Game:
     
     def display_score(self): 
         print(f'{self.player_one.name} has {self.player_one.score} points and {self.player_two.name} has {self.player_two.score} points.')        
+
         
     def display_winner(self):
         if self.player_one.score > self.player_two.score:
