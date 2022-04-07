@@ -9,7 +9,14 @@ class Game:
         self.player_two = Player('Frank')
 
 
+    def run_game(self):
+        self.display_welcome()
+        self.game_mode()
+        self.game_phase()
+        self.display_winner()
+
     def game_mode(self):
+        
         while self.user_input != '1' or self.user_input != '2':
             if self.user_input == '1':
                 print('RPSLS Rules')
@@ -28,7 +35,7 @@ class Game:
                 print('Lizard beats Paper Spock')
                 print('Spock beats Rock and Scissors')
                 self.player_vs_player()
-               
+         
             else:
                 print('Not a valid response')    
                 self.display_welcome()    
@@ -69,15 +76,18 @@ class Game:
         else:
             print(f'{self.player_one.name} wins the round.')
             self.player_one.score += 1
+    def display_score(self): 
+        print(f'{self.player_one.name} has {self.player_one.score} points and {self.player_two.name} has {self.player_two.score} points.')
 
     def player_vs_computer(self):
         self.player_two = Computer('Steve Jobs')
-        while self.player_one.score < 2 and self.player_two.score < 2:
+        while  self.player_one.score < 2 and self.player_two.score < 2:
             self.display_game_info()
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
             print(f'{self.player_one.name} chose {self.player_one.chosen_gesture} and {self.player_two.name} chose {self.player_two.chosen_gesture}')
             self.game_phase(self.player_one.chosen_gesture, self.player_two.chosen_gesture)
+                     
     
     def display_game_info(self):
         game_number = 1
@@ -85,9 +95,7 @@ class Game:
         print(f'{self.player_one.name}: {self.player_one.score} pts VS {self.player_two.name}: {self.player_two.score} pts.')
         game_number += 1
     
-    def display_score(self): 
-        print(f'{self.player_one.name} has {self.player_one.score} points and {self.player_two.name} has {self.player_two.score} points.')        
-
+          
         
     def display_winner(self):
         if self.player_one.score > self.player_two.score:
