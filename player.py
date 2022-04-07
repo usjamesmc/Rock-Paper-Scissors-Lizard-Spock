@@ -13,10 +13,10 @@ class Player():
          print("That is not a valid repsonse.")
          self.choose_gesture()
 
+
     def player_choice(self, list, category):
       for item in list:
          print(f'{list.index(item)}: {item}')
-
       while True:
          try:
             chosen_gesture = int(input(f'{self.name}, enter a number to choose your {category} : '))
