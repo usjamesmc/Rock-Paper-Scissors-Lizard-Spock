@@ -5,7 +5,7 @@ class Computer(Player):
         super().__init__(name)
 
     def attack_choice(self):   
-        self.current_gesture = random.choice(self.gesture)
+        self.chosen_gesture = random.choice(self.gesture)
         
 
     

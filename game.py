@@ -10,18 +10,19 @@ class Game:
 
     def run_game(self):
         self.display_welcome()
-        self.display_winner()
         
-    
-    def display_welcome(self):
-        user_input = input('Choose between 1 or 2 players: ')
-        print('Welcome to Rock Paper Scissors Lizard Spock') 
-        if user_input == '1':
+        if self.user_input == '1':
             self.player_vs_computer()
             print('You will be facing a computer')
         else:
             self.player_vs_player()
             print('You will be facing a human')
+        self.display_winner()
+        
+    
+    def display_welcome(self):
+        self.user_input = input('Choose between 1 or 2 players: ')
+        
 
     
     def player_vs_player(self):
@@ -30,7 +31,16 @@ class Game:
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
             self.game_phase(self.player_one.chosen_gesture, self.player_two.chosen_gesture)
-            self.display_score()
+            
+
+    def player_vs_computer(self):
+        self.player_two = Computer('Steve Jobs')
+        while self.player_one.score < 2 and self.player_two.score < 2:
+            self.player_one.choose_gesture()
+            self.player_two.choose_gesture()            
+            print(f'{self.player_one.name} chose {self.player_one.chosen_gesture} and {self.player_two.name} chose {self.player_two.chosen_gesture}')
+            self.game_phase(self.player_one.chosen_gesture, self.player_two.chosen_gesture)
+     
        
     
     def game_phase(self, player_one_choice, player_two_choice):
@@ -54,6 +64,7 @@ class Game:
         else:
             print(f'{self.player_one} wins the round.')
             self.player_one.score += 1
+    
     def display_score(self): 
         print(f'{self.player_one.name} has {self.player_one.score} points and {self.player_two.name} has {self.player_two.score} points.')        
         
