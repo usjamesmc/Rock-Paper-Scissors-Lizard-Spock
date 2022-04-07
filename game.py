@@ -22,22 +22,22 @@ class Game:
     def game_mode(self):
         while self.user_input != '1' or self.user_input != '2':
             if self.user_input == '1':
-                # print('RPSLS Rules')
-                # print('Rock beats Scissors and Lizard')
-                # print('Paper beats Rock and Spock')
-                # print('Scissors beats Paper and Lizard')
-                # print('Lizard beats Paper Spock')
-                # print('Spock beats Rock and Scissors')
+                print('RPSLS Rules')
+                print('Rock beats Scissors and Lizard')
+                print('Paper beats Rock and Spock')
+                print('Scissors beats Paper and Lizard')
+                print('Lizard beats Paper Spock')
+                print('Spock beats Rock and Scissors')
                 self.player_two = Computer('Steve Jobs')
                 self.player_selection()
                 
             elif self.user_input == '2':
-                # print('RPSLS Rules')
-                # print('Rock beats Scissors and Lizard')
-                # print('Paper beats Rock and Spock')
-                # print('Scissors beats Paper and Lizard')
-                # print('Lizard beats Paper Spock')
-                # print('Spock beats Rock and Scissors')
+                print('RPSLS Rules')
+                print('Rock beats Scissors and Lizard')
+                print('Paper beats Rock and Spock')
+                print('Scissors beats Paper and Lizard')
+                print('Lizard beats Paper Spock')
+                print('Spock beats Rock and Scissors')
                 self.player_two = Player("Frank")
                 self.player_selection()
          
