@@ -5,11 +5,12 @@ from computer import Computer
 class Game:
     def __init__(self):
         self.player_one = Player('Bob')
-        self.player_two = None
-
+        self.player_two = Player('Tim')
+        
 
     def run_game(self):
         self.display_welcome()
+        self.game_phase()
         self.display_winner()
         
     
@@ -27,11 +28,19 @@ class Game:
     def player_vs_player(self):
         self.player_two = Player('Frank')
         while self.player_one.score < 2 and self.player_two.score < 2:
+            choice = self.player_one.choose_gesture()
+            self.player_two.choose_gesture()
+            print(f'{self.player_one.name} chose {self.player_one.chosen_gesture} and {self.player_two.name} chose {self.player_two.chosen_gesture}')
+            self.game_phase(self.player_one.chosen_gesture, self.player_two.chosen_gesture)
+        return choice    
+       
+    def player_vs_computer(self):
+        self.player_two = Computer('Steve Jobs')
+        while self.player_one.score < 2 and self.player_two.score < 2:
             self.player_one.choose_gesture()
             self.player_two.choose_gesture()
+            print(f'{self.player_one.name} chose {self.player_one.chosen_gesture} and {self.player_two.name} chose {self.player_two.chosen_gesture}')
             self.game_phase(self.player_one.chosen_gesture, self.player_two.chosen_gesture)
-            self.display_score()
-       
     
     def game_phase(self, player_one_choice, player_two_choice):
         if player_one_choice == 'Rock' and player_two_choice in ['Paper', 'Spock']:
